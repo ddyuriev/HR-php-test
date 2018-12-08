@@ -14,3 +14,9 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::resource('orders', 'OrderController');
+Route::resource('products', 'ProductController');
+Route::get('weather',['as' => 'weather', 'uses' => 'OuterApiController@weather']);
+Route::get('order-sum',['as' => 'ordersum', 'uses' => 'OrderController@getOrderSum']);
+Route::post('product-price',['as' => 'productprice', 'uses' => 'ProductController@setProductPrice']);
